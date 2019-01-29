@@ -1,28 +1,50 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react'
+import { Layout } from 'antd'
+
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+
+import Routes from './Routes'
+
 import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+      <Layout>
+        <Router>
+          <div>
+
+            {/* Render topbar */}
+            {Routes.map(( route, index ) => (
+              <Route key={index}
+                    path={route.path}
+                    exact={route.exact}
+                    component={route.topbar}/>
+            ))}
+
+              <Layout>
+                {/* Render sidebar */}
+                {Routes.map(( route, index ) => (
+                  <Route key={index}
+                        path={route.path}
+                        exact={route.exact}
+                        component={route.sidebar}/>
+                ))}
+
+                {/* Render main */}
+                {Routes.map(( route, index ) => (
+                  <Route key={index}
+                        path={route.path}
+                        exact={route.exact}
+                        component={route.main}/>
+                ))}
+          
+              </Layout>
+          </div>
+        </Router>
+      </Layout>
+    )
   }
 }
 
-export default App;
+export default App
