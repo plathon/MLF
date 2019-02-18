@@ -6,13 +6,15 @@ import Topbar from './layout/Topbar'
 import RegisterPage from './pages/RegisterPage'
 import HomePage     from './pages/HomePage'
 
+import Store from './store/UserStore'
+
 const routes = [
     {
       path: "/",
       exact: true,
       topbar: () => <Topbar />,
       sidebar: () => <Sidebar />,
-      main: () => <HomePage />
+      main: () => <HomePage store={Store}/>
     },
     {
       path: "/signup",
