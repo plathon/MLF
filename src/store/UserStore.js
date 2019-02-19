@@ -1,9 +1,17 @@
-import { observable } from 'mobx'
+import { observable, action } from 'mobx'
 
 class UserStore {
-    @observable data = []
+    @observable data = { name: 'Renan' }
+    @observable isLoading = false
+
+    @action createUser (data) {
+        this.data = data
+        this.isLoading = true
+
+        setTimeout(() => {
+            this.isLoading = false
+        }, 3000)
+    }
 }
 
-let store = window.store = new UserStore
-
-export default store
+export default new UserStore()

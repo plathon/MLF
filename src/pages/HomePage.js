@@ -4,8 +4,7 @@ import { observer } from 'mobx-react'
 @observer
 class HomePage extends Component {
     render () {
-        console.log(this.props)
-        return <div>Home Page and data: {this.props.store.data[0]}</div>
+        return <div>Home Page</div>
     }
 }
 

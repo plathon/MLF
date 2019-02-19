@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component } from "react"
 
-import LoginForm from '../components/Login/LoginForm'
+import UpdatePasswordForm from '../components/Password/UpdatePasswordForm'
 
 import { Row, Col } from 'antd'
 
-class LoginPage extends Component {
+class UpdatePasswordPage extends Component {
     render () {
         return (
             <Row>
@@ -20,11 +20,11 @@ class LoginPage extends Component {
                     lg={10}
                     xl={10}
                     style={{ marginTop: 100 }}>
-                        <LoginForm />
+                        <UpdatePasswordForm />
                 </Col>
             </Row>
         )
     }
 }
 
-export default LoginPage
+export default UpdatePasswordPage
